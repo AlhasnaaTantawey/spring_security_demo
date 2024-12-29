@@ -20,10 +20,11 @@ import java.util.Set;
 @Table(name = "sec_users",schema = "hr")
 public class AppUser extends BaseEntity<Long> {
 
+    @Column(name = "user_name")
     private String userName;
 
     private String password;
-
+    @Column(name = "full_name")
     private String fullName;
 
     @ManyToMany
@@ -31,5 +32,6 @@ public class AppUser extends BaseEntity<Long> {
     joinColumns = @JoinColumn(name = "user_id") ,
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     @OrderColumn(name = "role_position")
+    @Column(name = "roles")
     private List<Roles> rolesSet =new ArrayList<>();
 }

@@ -6,7 +6,6 @@ import org.springframework.data.repository.NoRepositoryBean;
 import java.util.List;
 
 @NoRepositoryBean
-public interface BaseRepository<T,ID> extends JpaRepository<T,ID> {
-    // Common method for all entities
-    List<T> findByName(String name);
+public interface BaseRepository<T extends  BaseEntity,ID> extends JpaRepository<T,ID> {
+
 }
