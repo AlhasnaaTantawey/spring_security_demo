@@ -4,6 +4,7 @@ import com.global.base.BaseService;
 import com.global.entity.AppUser;
 import com.global.entity.Roles;
 import com.global.repository.UserRepository;
+import com.global.security.AppUserDetail;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -42,20 +43,21 @@ public class UserService extends BaseService<AppUser, Long> implements UserDetai
         if (!appUser.isPresent()) {
             throw new UsernameNotFoundException("this user not found with selected username:-  " + username);
         }
-        return new User(appUser.get().getUserName(), appUser.get().getPassword(), getAuthority(appUser.get()));
+       // return new User(appUser.get().getUserName(), appUser.get().getPassword(), getAuthority(appUser.get()));
+        return new AppUserDetail(appUser.get());
     }
 
-    private static List<GrantedAuthority> getAuthority(AppUser appUser) {
-
-        List<GrantedAuthority> authorities = new ArrayList<>();
-
-        if (!appUser.getRolesSet().isEmpty()) {
-            appUser.getRolesSet().forEach(roles ->
-                    authorities.add(new SimpleGrantedAuthority("ROLE_" + roles.getName()))
-            );
-        }
-        return authorities;
-    }
+//    private static List<GrantedAuthority> getAuthority(AppUser appUser) {
+//
+//        List<GrantedAuthority> authorities = new ArrayList<>();
+//
+//        if (!appUser.getRolesSet().isEmpty()) {
+//            appUser.getRolesSet().forEach(roles ->
+//                    authorities.add(new SimpleGrantedAuthority("ROLE_" + roles.getName()))
+//            );
+//        }
+//        return authorities;
+//    }
 
 
 }
