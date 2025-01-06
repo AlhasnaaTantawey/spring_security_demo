@@ -27,7 +27,7 @@ public class AppUser extends BaseEntity<Long> {
     @Column(name = "full_name")
     private String fullName;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "sec_user_roles" ,
     joinColumns = @JoinColumn(name = "user_id") ,
     inverseJoinColumns = @JoinColumn(name = "role_id"))
