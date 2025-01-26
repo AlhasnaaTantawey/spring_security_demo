@@ -1,4 +1,4 @@
-package com.global.error;
+package com.global.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,16 +10,14 @@ import java.util.List;
 
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-public class ErrorResponse {
+public class ErrorResponseDto {
 
-	private Boolean success;
+//	private LocalDateTime timestamp;
 	private String message;
-//	private LocalDateTime dateTime;
-	private List<String> details;
+	private String details;
 
-	public ErrorResponse(String message, List<String> details) {
+	public ErrorResponseDto(String message, String details) {
 		this.message = message;
 		this.details = details;
 	}
