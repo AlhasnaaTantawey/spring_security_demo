@@ -1,3 +1,5 @@
+import javax.naming.AuthenticationException;
+
 //package com.global.security;
 //
 //import lombok.RequiredArgsConstructor;
@@ -24,7 +26,7 @@
 //
 //    private final PasswordEncoder passwordEncoder;
 //
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//    protected void configure(AuthenticationManagerBuilder auth) throws AuthenticationException {
 //        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 //    }
 //

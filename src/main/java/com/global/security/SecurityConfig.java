@@ -1,3 +1,5 @@
+import javax.naming.AuthenticationException;
+
 //package com.global.security;
 //
 //import org.springframework.context.annotation.Bean;
@@ -17,7 +19,7 @@
 //
 //
 ////    @Bean
-////    public AuthenticationManager authenticationManager(AuthenticationManagerBuilder authBuilder, PasswordEncoder passwordEncoder) throws Exception {
+//    public AuthenticationManager authenticationManager(AuthenticationManagerBuilder authBuilder, PasswordEncoder passwordEncoder) throws AuthenticationException {
 ////        authBuilder
 ////                .inMemoryAuthentication()
 ////                .withUser("admin").password(passwordEncoder.encode("123")).roles("ADMIN")
@@ -32,7 +34,7 @@
 ////                .sessionManagement(session ->
 ////                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 ////                .authorizeHttpRequests(auth ->
-////                        auth.requestMatchers("/user").hasRole("USER")
+ ////                       auth.requestMatchers("/user").hasRole("USER")
 ////                                .requestMatchers("/admin").hasRole("ADMIN")
 ////                                .anyRequest().authenticated())
 ////                .csrf(csrf -> csrf.disable());
