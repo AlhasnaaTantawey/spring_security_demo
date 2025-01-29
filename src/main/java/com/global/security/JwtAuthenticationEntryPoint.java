@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
 
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
 
@@ -26,7 +26,6 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
         // Create a custom error response
         ErrorResponseDto errorResponse = new ErrorResponseDto(
-//                LocalDateTime.now(),
                 "Unauthorized: Authentication is required.",
                 authException.getMessage()
         );

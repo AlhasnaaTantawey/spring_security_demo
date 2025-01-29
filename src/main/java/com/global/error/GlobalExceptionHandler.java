@@ -116,6 +116,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 				"User not found.",
 				ex.getMessage()
 		);
+	//	ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("username not found");
 		return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
 	}
 
